@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<iterator>
+#include<algorithm>
 using namespace std;
 
 /* q.1
@@ -76,12 +77,19 @@ int main(){
 }
 
 Q.5 find largest and smallest element into the vector
+
+Q.8 find common element in two vector
 */
 int main(){
     
-    vector<int>v = {1,2,3,4,5};
-    int max = MIN_INT;
-    int min = MAX_INT;
+    vector<int>v1 = {1,2,3,4,5};
+    vector<int>v2 = {3,4,2,7,8};
+    vector<int>v3;
+    
+    set_intersection(v1.begin(),v1.end(),v2.begin(),v2.end(),back_inserter(v3));
+    for(int i = 0; i<v3.size(); i++){
+        cout<<v3.at(i)<<" ";
+    }
 
     return 0;
 }
