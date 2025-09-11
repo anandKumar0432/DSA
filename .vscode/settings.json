@@ -3,6 +3,9 @@
     "files.associations": {
         "iostream": "cpp",
         "list": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "xstring": "cpp",
+        "ostream": "cpp",
+        "utility": "cpp"
     }
 }
