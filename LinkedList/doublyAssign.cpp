@@ -59,9 +59,18 @@ class doublyLL{
         temp->val = v;
         if(head == NULL){
             head = temp;
+            return;
         }
-
-        while()
+        node* t = head;
+        while(t->val <= v && t->next != NULL){
+            t = t->next;
+        }
+        node* t2;
+        t2 = t->prev;
+        t2->next = temp;
+        temp->prev = t2;
+        temp->next = t;
+        t->prev = temp;
     }
 
     void printdll(){
@@ -85,6 +94,9 @@ int main(){
     dll.insertAtEnd(8);
     dll.insertAtEnd(9);
     dll.printdll();
-    dll.printPair(7);
+    // dll.printPair(7);
+    dll.inserInSortedList(9);
+    dll.inserInSortedList(5);
+    dll.printdll();
     return 0;
 }   
