@@ -73,6 +73,30 @@ class doublyLL{
         t->prev = temp;
     }
 
+    void removeDuplicates(){
+        node* temp = head;
+        if(head == NULL){
+            cout<<"list is empty !"<<endl;
+            return ;
+        }
+        while(temp->next != NULL){
+            if(temp->val == temp->next->val){
+                if(temp->next->next == NULL){
+                    node* t = temp->next;
+                    temp->next = NULL;
+                    delete t;
+                }else{
+                    node* t = temp->next;
+                    temp->next = t->next;
+                    t->next->prev = temp;
+                    delete t;
+                }
+            }else{
+                temp = temp->next;
+            }
+        }
+    }
+
     void printdll(){
         node* temp = head;
         while(temp != NULL){
@@ -90,13 +114,17 @@ int main(){
     dll.insertAtEnd(2);
     dll.insertAtEnd(4);
     dll.insertAtEnd(5);
+    dll.insertAtEnd(5);
+    dll.insertAtEnd(5);
     dll.insertAtEnd(6);
     dll.insertAtEnd(8);
     dll.insertAtEnd(9);
+    dll.insertAtEnd(9);
     dll.printdll();
     // dll.printPair(7);
-    dll.inserInSortedList(9);
-    dll.inserInSortedList(5);
+    // dll.inserInSortedList(9);
+    // dll.inserInSortedList(5);
+    dll.removeDuplicates();
     dll.printdll();
     return 0;
 }   
