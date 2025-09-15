@@ -97,6 +97,29 @@ class doublyLL{
         }
     }
 
+    void rotateList(int k){
+        node* temp = head;
+        if(head == NULL){
+            cout<<"list is empty !"<<endl;
+            return;
+        }
+
+        while(temp->next != NULL){
+            temp = temp->next;
+        }
+        head->prev = temp;
+        temp->next = head;
+        node* t = head;
+        while(t->next != head && k != 0){
+            t = t->next;
+            k--;
+        }
+        t->prev->next = NULL;
+        t->prev = NULL;
+        head = t;
+        
+    }
+
     void printdll(){
         node* temp = head;
         while(temp != NULL){
@@ -124,7 +147,8 @@ int main(){
     // dll.printPair(7);
     // dll.inserInSortedList(9);
     // dll.inserInSortedList(5);
-    dll.removeDuplicates();
+    // dll.removeDuplicates();
+    dll.rotateList(3);
     dll.printdll();
     return 0;
 }   
