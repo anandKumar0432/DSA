@@ -118,6 +118,9 @@ class doublyLL{
         t->prev = NULL;
         head = t;
         
+
+
+        
     }
 
     void printdll(){
