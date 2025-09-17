@@ -117,10 +117,66 @@ class doublyLL{
         t->prev->next = NULL;
         t->prev = NULL;
         head = t;
-        
+    }
 
+    bool isDigitSumEven(int num){
+        int sum = 0;
+        while(num != 0){
+            sum = sum + num % 10;
+            num = num/10;
+        }
+        if(sum % 2 == 0){
+            return true;
+        }
+        return false;
+    }
 
-        
+    
+
+    void removeSumEven(){
+        node * temp = head;
+        if(head == NULL){
+            cout<<"list is empty !"<<endl;
+            return;
+        }
+        while(temp != NULL){
+            if(isDigitSumEven(temp->val)){
+                if(temp == head){
+                    head = temp->next;
+                    delete temp;
+                    temp = head;
+                }else if(temp->next == NULL){
+                    node* t = temp->prev;
+                    t->next = NULL;
+                    delete temp;
+                    temp = t;
+                }else{
+                    node* t = temp->prev;
+                    t->next = temp->next;
+                    temp->next->prev = t;
+                    delete temp;
+                    temp = t;
+                }
+            }
+            temp = temp->next;
+        }
+    }
+
+    void reverselist(){
+        node* temp = head;
+        if(head == NULL){
+            cout<<"list is empty !"<<endl;
+            return ;
+        }
+        node* t = NULL;
+        cout<<"temp :"<<temp<<endl;
+        while(temp != NULL){
+            t = temp->prev;
+            temp->prev = temp->next;
+            temp->next = t;
+            temp = temp->prev;
+        } 
+        head = t->prev;
     }
 
     void printdll(){
@@ -142,16 +198,18 @@ int main(){
     dll.insertAtEnd(5);
     dll.insertAtEnd(5);
     dll.insertAtEnd(5);
-    dll.insertAtEnd(6);
-    dll.insertAtEnd(8);
-    dll.insertAtEnd(9);
-    dll.insertAtEnd(9);
+    dll.insertAtEnd(16);
+    dll.insertAtEnd(18);
+    dll.insertAtEnd(19);
+    dll.insertAtEnd(19);
     dll.printdll();
     // dll.printPair(7);
     // dll.inserInSortedList(9);
     // dll.inserInSortedList(5);
     // dll.removeDuplicates();
-    dll.rotateList(3);
+    // dll.rotateList(3);
+    // dll.reverselist();
+    dll.removeSumEven();
     dll.printdll();
     return 0;
 }   
