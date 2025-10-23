@@ -8,7 +8,7 @@ class Animal{
     }
 };
 
-class Dog : private Animal{
+class Dog : public Animal{
     public: 
     void dog(){
         sound();
@@ -19,6 +19,6 @@ class Dog : private Animal{
 int main(){
     Dog d;
     d.dog();
-    // d.sound();
+    d.sound();
     return 0;
 }
