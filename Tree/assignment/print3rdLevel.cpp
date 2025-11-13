@@ -15,7 +15,6 @@ class TreeNode{
 };
 
 int height(TreeNode* root){
-
     if(root == nullptr){
         return 0;
     }
@@ -30,9 +29,12 @@ void print_level_order(TreeNode* root, int level){
     }
     if(level == 0){
         cout<<root->val<<" ";
-    }else{
+    }else if(level % 2 == 0){
         print_level_order(root->left, level-1);
         print_level_order(root->right, level-1);
+    }else{
+        print_level_order(root->right, level -1);
+        print_level_order(root->left, level -1);
     }
 }
 
@@ -44,7 +46,6 @@ void level_order(TreeNode* root){
 }
 
 int main(){
-
     TreeNode* root = new TreeNode(10);
     root->left = new TreeNode(11);
     root->right = new TreeNode(31);
