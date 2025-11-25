@@ -28,7 +28,7 @@ class Tree{
             a[2*i+1]=v;
         }
         else{
-            cout<<"parent does not exist or overflow"<<endl; 
+            cout<<"parent does not exist or overflow"<<endl;
         }
     }
 
