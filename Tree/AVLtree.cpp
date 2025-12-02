@@ -100,6 +100,16 @@ node* insertNode(node* root, int val){
     return root;
 }
 
+node* deleteNode(node* root, int val){
+    if(root == nullptr){
+        return nullptr;
+    }
+
+    if(root->data > val){
+        
+    }
+}
+
 void printTree(node* root){
     if(root == nullptr){
         return;
